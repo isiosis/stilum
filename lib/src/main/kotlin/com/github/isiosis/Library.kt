@@ -10,7 +10,7 @@ class Stilum {
         }
 
         fun println (message: String, color: Colors) {
-            kotlin.io.println("${color.ansiCode}$message")
+            kotlin.io.println("${color.ansiCode}$message${Colors.DEFAULT.ansiCode}")
         }
     }
 }
