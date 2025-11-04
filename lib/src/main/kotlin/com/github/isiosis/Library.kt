@@ -15,4 +15,16 @@ class Stilum (
             kotlin.io.println("${color.ansiCode}$message${Colors.DEFAULT.ansiCode}")
         }
     }
+
+    fun println(message: String) {
+        if (color !== null) {
+            println(message, color)
+        } else {
+            kotlin.io.println(message)
+        }
+    }
+
+    fun println (message: String, color: Colors) {
+        kotlin.io.println("${color.ansiCode}$message${Colors.DEFAULT.ansiCode}")
+    }
 }
