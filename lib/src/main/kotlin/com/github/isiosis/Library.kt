@@ -3,7 +3,9 @@ package com.github.isiosis.stilum
 import com.github.isiosis.Colors
 
 
-class Stilum {
+class Stilum (
+     val color: Colors? = null
+) {
     companion object {
         fun println(message: String) {
             kotlin.io.println(message)
