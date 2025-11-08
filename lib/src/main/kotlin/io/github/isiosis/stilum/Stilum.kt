@@ -1,5 +1,8 @@
 package io.github.isiosis.stilum
 
+import io.github.isiosis.stilum.IoHandler.IoHandler.Companion.prepareStyledString
+import io.github.isiosis.stilum.IoHandler.IoHandler.Companion.printWithStandardLibrary
+
 class Stilum (
      val color: Colors? = null
 ) {
@@ -10,14 +13,6 @@ class Stilum (
 
         fun println (message: String, color: Colors) {
             printWithStandardLibrary(prepareStyledString(message, color))
-        }
-
-        private fun prepareStyledString(message: String, color: Colors): String{
-            return "${color.ansiCode}${message}${Colors.DEFAULT.ansiCode}"
-        }
-
-        private fun printWithStandardLibrary(message: String) {
-            kotlin.io.println(message)
         }
     }
 
