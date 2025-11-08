@@ -16,6 +16,3 @@ include("lib")
 
 include("sample")
 include("sample:test")
-include("sample:test")
-include("sample:test")
-include("sample:test")

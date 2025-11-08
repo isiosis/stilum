@@ -1,6 +1,4 @@
-package com.github.isiosis.stilum
-
-import com.github.isiosis.Colors
+package io.github.isiosis.stilum
 
 
 class Stilum (

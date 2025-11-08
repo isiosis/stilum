@@ -9,9 +9,76 @@
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     alias(libs.plugins.kotlin.jvm)
-
+    `maven-publish`
+    signing
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
+    id("org.jetbrains.dokka")
+}
+
+java {
+    withSourcesJar()
+}
+
+val dokkaJavadocJar by tasks.registering(Jar::class) {
+    dependsOn(tasks.dokkaHtml)
+    from(tasks.dokkaHtml.get().outputDirectory)
+    archiveClassifier.set("javadoc")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            from(components["java"])
+
+            artifact(dokkaJavadocJar)
+
+            artifactId = "stilum" 
+
+            pom {
+                name.set("stilum")
+                description.set("Short description of what your library does.")
+                url.set("https://github.com/yourname/stilum")
+                licenses {
+                    license {
+                        name.set("Apache-2.0")
+                        url.set("https://www.apache.org/licenses/LICENSE-2.0")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("yourname")
+                        name.set("Your Name")
+                        url.set("https://github.com/yourname")
+                    }
+                }
+                scm {
+                    url.set("https://github.com/yourname/stilum")
+                    connection.set("scm:git:git://github.com/yourname/stilum.git")
+                    developerConnection.set("scm:git:ssh://github.com:yourname/stilum.git")
+                }
+            }
+        }
+    }
+}
+
+fun cred(name: String): String? =
+    providers.gradleProperty(name).orNull ?: System.getenv(name)
+
+signing {
+    val key = cred("SIGNING_KEY")
+    val pass = cred("SIGNING_PASSWORD") ?: ""
+
+    if (key.isNullOrBlank()) {
+        throw GradleException("PGP signing not configured. Provide SIGNING_KEY (+ SIGNING_PASSWORD if encrypted).")
+    }
+
+    useGpgCmd()
+    sign(publishing.publications)
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 repositories {
@@ -42,4 +109,10 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
     }
+}
+
+tasks.register<Jar>("javadocJar") {
+    dependsOn(tasks.dokkaHtml)
+    from(tasks.dokkaHtml.get().outputDirectory)
+    archiveClassifier.set("javadoc")
 }

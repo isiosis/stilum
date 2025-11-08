@@ -1,4 +1,4 @@
-package com.github.isiosis
+package io.github.isiosis.stilum
 
 const val escapeCharacter = "\u001b["
 
@@ -12,6 +12,6 @@ enum class Colors (
     BLUE(ansiCode = "${escapeCharacter}34m"),
     MAGNETA(ansiCode = "${escapeCharacter}35m"),
     CYAN(ansiCode = "${escapeCharacter}36m"),
-    WHITE(ansiCode = "${escapeCharacter}37m")
-
+    WHITE(ansiCode = "${escapeCharacter}37m"),
+    DEFAULT(ansiCode = "${escapeCharacter}0m")
 }
