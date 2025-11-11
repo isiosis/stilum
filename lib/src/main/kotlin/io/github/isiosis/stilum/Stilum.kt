@@ -1,7 +1,7 @@
 package io.github.isiosis.stilum
 
-import io.github.isiosis.stilum.IoHandler.IoHandler.Companion.prepareStyledString
-import io.github.isiosis.stilum.IoHandler.IoHandler.Companion.printWithStandardLibrary
+import io.github.isiosis.stilum.ioHandler.IoHandler.Companion.prepareStyledString
+import io.github.isiosis.stilum.ioHandler.IoHandler.Companion.printWithStandardLibrary
 
 class Stilum (
      val color: Colors? = null
