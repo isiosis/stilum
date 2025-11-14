@@ -13,5 +13,6 @@ fun main() {
     terminal.println("What color should this be now")
     terminal.println("This should now be ${Colors.RED.name}")
     Stilum.println("this should be back to white")
-    terminal.println("and this should be blue", Colors.BLUE)
+    terminal.println("and this should be blue and italic", Colors.BLUE, FontStyle.ITALIC)
+    terminal.println("and this should be green and bold", Colors.GREEN, FontStyle.BOLD)
 }

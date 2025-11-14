@@ -1,15 +1,17 @@
 package io.github.isiosis.stilum.ioHandler
 
 import io.github.isiosis.stilum.Colors
+import io.github.isiosis.stilum.FontStyle
 
-class IoHandler {
-    companion object {
-        fun prepareStyledString(message: String, color: Colors): String {
-            return "${color.ansiCode}${message}${Colors.DEFAULT.ansiCode}"
-        }
+private const val ESC = "\u001b["
 
-        fun printWithStandardLibrary(message: String) {
-            println(message)
-        }
+object IoHandler {
+    fun prepareStyledString(message: String, color: Colors, style: FontStyle): String {
+        val styledString = "$ESC${style.ansiCode};${color.ansiCode}m$message${ESC}0m"
+        return styledString
+    }
+
+    fun printWithStandardLibrary(message: String) {
+        kotlin.io.println(message)
     }
 }

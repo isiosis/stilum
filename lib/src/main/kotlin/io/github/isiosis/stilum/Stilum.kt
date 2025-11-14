@@ -1,30 +1,18 @@
 package io.github.isiosis.stilum
 
-import io.github.isiosis.stilum.ioHandler.IoHandler.Companion.prepareStyledString
-import io.github.isiosis.stilum.ioHandler.IoHandler.Companion.printWithStandardLibrary
+import io.github.isiosis.stilum.ioHandler.IoHandler
 
 class Stilum (
-     val color: Colors? = null
+     val color: Colors = Colors.DEFAULT,
+     val fontStyle: FontStyle = FontStyle.DEFAULT
 ) {
     companion object {
-        fun println(message: String) {
-            printWithStandardLibrary(message)
-        }
-
-        fun println (message: String, color: Colors) {
-            printWithStandardLibrary(prepareStyledString(message, color))
+        fun println (message: String, color: Colors = Colors.DEFAULT, fontStyle: FontStyle = FontStyle.DEFAULT) {
+            IoHandler.printWithStandardLibrary(IoHandler.prepareStyledString(message, color, fontStyle))
         }
     }
 
-    fun println(message: String) {
-        if (color !== null) {
-            println(message, color)
-        } else {
-            printWithStandardLibrary(prepareStyledString(message, Colors.DEFAULT))
-        }
-    }
-
-    fun println (message: String, color: Colors) {
-        printWithStandardLibrary(prepareStyledString(message, color))
+    fun println(message: String, color: Colors = this.color, fontStyle: FontStyle = this.fontStyle) {
+        Companion.println(message, color, fontStyle)
     }
 }
