@@ -3,7 +3,7 @@ package io.github.isiosis.stilum.ioHandler
 import io.github.isiosis.stilum.Colors
 import io.github.isiosis.stilum.FontStyle
 
-private const val ESC = "\u001b["
+const val ESC = "\u001b["
 
 object IoHandler {
     fun prepareStyledString(message: String, color: Colors, style: FontStyle): String {

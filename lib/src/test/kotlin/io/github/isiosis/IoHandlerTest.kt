@@ -1,7 +1,8 @@
 package io.github.isiosis
 
 import io.github.isiosis.stilum.Colors
-import io.github.isiosis.stilum.ioHandler.IoHandler
+import io.github.isiosis.stilum.FontStyle
+import io.github.isiosis.stilum.ioHandler.*
 import kotlin.test.Test
 
 class IoHandlerTest {
@@ -9,7 +10,9 @@ class IoHandlerTest {
     @Test
     fun `should prepare styled string with the default color`() {
         val color = Colors.DEFAULT
-        val outputString = IoHandler.prepareStyledString("message", color)
-        assert(outputString.equals("${color.ansiCode}message${Colors.DEFAULT.ansiCode}"))
+        val fontStyle = FontStyle.DEFAULT
+        val message = "message"
+        val outputString = IoHandler.prepareStyledString(message, color, fontStyle)
+        assert(outputString.equals("$ESC${fontStyle.ansiCode};${color.ansiCode}m$message${ESC}0m"))
     }
 }
