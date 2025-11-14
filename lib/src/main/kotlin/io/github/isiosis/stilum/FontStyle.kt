@@ -7,5 +7,6 @@ enum class FontStyle (
     ITALIC(ansiCode = "3"),
     UNDERLINE(ansiCode = "4"),
     STRIKETHROUGH(ansiCode = "9"),
-    DEFAULT(ansiCode = "0")
+    DEFAULT(ansiCode = "39"),
+    RESET(ansiCode = "0") // this resets all color and text effects
 }

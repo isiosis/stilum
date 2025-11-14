@@ -12,7 +12,7 @@ class IoHandlerTest {
         val color = Color.DEFAULT
         val fontStyle = FontStyle.DEFAULT
         val message = "message"
-        val outputString = IoHandler.prepareStyledString(message, color, fontStyle)
-        assert(outputString.equals("$ESC${fontStyle.ansiCode};${color.ansiCode}m$message${ESC}0m"))
+        val outputString = IoHandler.prepareStyledString(message, color, color, fontStyle)
+        assert(outputString.equals("$ESC${fontStyle.ansiCode};${color.foreGroundAnsiCode};${color.backGroundAnsiCode}m$message${ESC}0m"))
     }
 }

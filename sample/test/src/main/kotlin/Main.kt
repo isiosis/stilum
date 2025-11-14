@@ -8,13 +8,14 @@ fun main() {
     Stilum.println("this is green", Color.GREEN)
     Stilum.println("this should be white")
 
-    val terminal = Stilum(Color.RED)
+    val terminal = Stilum(foreGroundColor = Color.RED)
 
     terminal.println("What color should this be now")
     terminal.println("This should now be ${Color.RED.name}")
     Stilum.println("this should be back to white")
-    terminal.println("and this should be blue and italic", Color.BLUE, FontStyle.ITALIC)
-    terminal.println("and this should be green and bold", Color.GREEN, FontStyle.BOLD)
+    terminal.println("and this should be blue and italic", Color.BLUE, fontStyle = FontStyle.ITALIC)
+    terminal.println("and this should be green and bold", Color.GREEN, fontStyle = FontStyle.BOLD)
     terminal.println("now this should be strikethrough", fontStyle = FontStyle.STRIKETHROUGH)
     terminal.println("and this should be underlined", fontStyle = FontStyle.UNDERLINE)
+    Stilum.println("this is a message with a background color of red and foreground white", foreGroundColor = Color.WHITE, backGroundColor = Color.RED)
 }

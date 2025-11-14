@@ -14,10 +14,10 @@ class StilumTest {
     @Test
     fun `Stilum uses class color and font style`() {
         mockkObject(IoHandler)
-        every { IoHandler.prepareStyledString(any(), any(), any()) }  returns "styled"
+        every { IoHandler.prepareStyledString(any(), any(), any(), any()) }  returns "styled"
 
-        val terminal = Stilum(Color.RED)
+        val terminal = Stilum(foreGroundColor = Color.RED)
         terminal.println("message")
-        verify { IoHandler.prepareStyledString("message", Color.RED, FontStyle.DEFAULT) }
+        verify { IoHandler.prepareStyledString("message", Color.RED, Color.DEFAULT, FontStyle.DEFAULT) }
     }
 }
