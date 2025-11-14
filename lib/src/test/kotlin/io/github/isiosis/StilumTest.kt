@@ -1,6 +1,6 @@
 package io.github.isiosis
 
-import io.github.isiosis.stilum.Colors
+import io.github.isiosis.stilum.Color
 import io.github.isiosis.stilum.FontStyle
 import io.github.isiosis.stilum.ioHandler.IoHandler
 import io.github.isiosis.stilum.Stilum
@@ -12,12 +12,12 @@ import kotlin.test.Test
 class StilumTest {
 
     @Test
-    fun `Stilum uses class color`() {
+    fun `Stilum uses class color and font style`() {
         mockkObject(IoHandler)
         every { IoHandler.prepareStyledString(any(), any(), any()) }  returns "styled"
 
-        val terminal = Stilum(Colors.RED)
+        val terminal = Stilum(Color.RED)
         terminal.println("message")
-        verify { IoHandler.prepareStyledString("message", Colors.RED, FontStyle.DEFAULT) }
+        verify { IoHandler.prepareStyledString("message", Color.RED, FontStyle.DEFAULT) }
     }
 }

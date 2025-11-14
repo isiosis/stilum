@@ -1,7 +1,7 @@
 package io.github.isiosis.stilum
 
 
-enum class Colors (
+enum class Color (
     val ansiCode: String
 ) {
     BLACK(ansiCode = "30"),
