@@ -3,12 +3,12 @@ package io.github.isiosis.stilum
 import io.github.isiosis.stilum.ioHandler.IoHandler
 
 class Stilum (
-    val fontStyle: FontStyle = FontStyle.DEFAULT,
-    val foreGroundColor: Color = Color.DEFAULT,
-    val backGroundColor: Color = Color.DEFAULT
+    val fontStyle: FontStyle = FontStyle.default,
+    val foreGroundColor: Color = Color.default,
+    val backGroundColor: Color = Color.default
 ) {
     companion object {
-        fun println (message: String, foreGroundColor: Color = Color.DEFAULT, backGroundColor: Color = Color.DEFAULT, fontStyle: FontStyle = FontStyle.DEFAULT) {
+        fun println (message: String, foreGroundColor: Color = Color.default, backGroundColor: Color = Color.default, fontStyle: FontStyle = FontStyle.default) {
             IoHandler.printWithStandardLibrary(IoHandler.prepareStyledString(message, foreGroundColor, backGroundColor, fontStyle))
         }
     }

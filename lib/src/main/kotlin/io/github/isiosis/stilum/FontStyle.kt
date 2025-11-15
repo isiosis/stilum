@@ -1,12 +1,19 @@
 package io.github.isiosis.stilum
 
+import io.github.isiosis.stilum.ioHandler.IoHandler
+import io.github.isiosis.stilum.Color
+
 enum class FontStyle (
     val ansiCode: String
 ) {
-    BOLD(ansiCode = "1"),
-    ITALIC(ansiCode = "3"),
-    UNDERLINE(ansiCode = "4"),
-    STRIKETHROUGH(ansiCode = "9"),
-    DEFAULT(ansiCode = "39"),
-    RESET(ansiCode = "0") // this resets all color and text effects
+    bold(ansiCode = "1"),
+    italic(ansiCode = "3"),
+    underline(ansiCode = "4"),
+    strikethrough(ansiCode = "9"),
+    default(ansiCode = "39"),
+    reset(ansiCode = "0"); // this resets all color and text effects
+
+    operator fun invoke(text: String) : String {
+        return IoHandler.prepareStyledString(text, Color.default, Color.default, this)
+    }
 }
