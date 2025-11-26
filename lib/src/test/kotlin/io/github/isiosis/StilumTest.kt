@@ -16,7 +16,7 @@ class StilumTest {
         mockkObject(IoHandler)
         every { IoHandler.prepareStyledString(any(), any(), any(), any()) }  returns "styled"
 
-        val terminal = Stilum(foreGroundColor = Color.red)
+        val terminal = Stilum(foregroundColor = Color.red)
         terminal.println("message")
         verify { IoHandler.prepareStyledString("message", Color.red, Color.default, FontStyle.default) }
     }

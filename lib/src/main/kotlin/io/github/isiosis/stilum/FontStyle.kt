@@ -13,7 +13,6 @@ enum class FontStyle (
     default(ansiCode = "39"),
     reset(ansiCode = "0"); // this resets all color and text effects
 
-    operator fun invoke(text: String) : String {
-        return IoHandler.prepareStyledString(text, Color.default, Color.default, this)
-    }
+    operator fun invoke(text: String) : String = IoHandler.prepareStyledString(text, Color.default, Color.default, this)
+
 }
