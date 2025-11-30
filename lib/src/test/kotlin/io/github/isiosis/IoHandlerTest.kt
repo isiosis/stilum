@@ -1,7 +1,9 @@
 package io.github.isiosis
 
 import io.github.isiosis.stilum.Color
+import io.github.isiosis.stilum.ESC
 import io.github.isiosis.stilum.FontStyle
+import io.github.isiosis.stilum.TextStyle
 import io.github.isiosis.stilum.ioHandler.*
 import kotlin.test.Test
 
@@ -12,7 +14,7 @@ class IoHandlerTest {
         val color = Color.default
         val fontStyle = FontStyle.default
         val message = "message"
-        val outputString = IoHandler.prepareStyledString(message, color, color, fontStyle)
-        assert(outputString.equals("$ESC${fontStyle.ansiCode};${color.foreGroundAnsiCode};${color.backGroundAnsiCode}m$message${ESC}0m"))
+        val outputString = IoHandler.prepareStyledString(message, TextStyle(color, color, fontStyle))
+        assert(outputString.equals("$ESC${fontStyle.ansiCode};${color.foregroundAnsiCode};${color.backgroundAnsiCode}m$message${ESC}0m"))
     }
 }

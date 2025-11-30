@@ -18,5 +18,5 @@ enum class Color (
     default(foregroundAnsiCode = "39", backgroundAnsiCode = "49"),
     reset(foregroundAnsiCode = "0", backgroundAnsiCode = "0"); // this resets all color and text effects
 
-    operator fun invoke(text: String):String = IoHandler.prepareStyledString(text, this, Color.default, FontStyle.default)
+    operator fun invoke(text: String):String = IoHandler.prepareStyledString(text, TextStyle(this))
 }
