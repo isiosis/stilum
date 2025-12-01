@@ -37,7 +37,7 @@ publishing {
 
             pom {
                 name.set("stilum")
-                description.set("Short description of what your library does.")
+                description.set("Simple terminal output styler for kotlin.")
                 url.set("https://github.com/yourname/stilum")
                 licenses {
                     license {
@@ -47,15 +47,15 @@ publishing {
                 }
                 developers {
                     developer {
-                        id.set("yourname")
-                        name.set("Your Name")
-                        url.set("https://github.com/yourname")
+                        id.set("isiosis")
+                        name.set("isiosis")
+                        url.set("https://github.com/isiosis")
                     }
                 }
                 scm {
-                    url.set("https://github.com/yourname/stilum")
-                    connection.set("scm:git:git://github.com/yourname/stilum.git")
-                    developerConnection.set("scm:git:ssh://github.com:yourname/stilum.git")
+                    url.set("https://github.com/isiosis/stilum")
+                    connection.set("scm:git:git://github.com/isiosis/stilum.git")
+                    developerConnection.set("scm:git:ssh://github.com:isiosis/stilum.git")
                 }
             }
         }
