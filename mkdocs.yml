@@ -3,5 +3,8 @@ repo_name: Stilum
 repo_url: https://github.com/isiosis/stilum
 site_description: Documentation for Stilum; A simple terminal output styler for kotlin.
 site_author: isiosis
+copyright: Copyright &copy; 2025 isiosis
+
 nav:
   - 'Getting Started': getting_started.md
+  - 'Releases': changelog.md
