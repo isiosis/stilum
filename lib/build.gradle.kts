@@ -38,7 +38,7 @@ publishing {
             pom {
                 name.set("stilum")
                 description.set("Simple terminal output styler for kotlin.")
-                url.set("https://github.com/yourname/stilum")
+                url.set("https://github.com/isiosis/stilum")
                 licenses {
                     license {
                         name.set("Apache-2.0")
