@@ -1,8 +1,18 @@
 ## Getting Started
 
-Stilum is a simple terminal output styler for Kotlin. The package is available @stilum on maven. It exposes the class
-Stilum that can be used as pre styled output element or through it's
-companion object, it can be used to style elements on the fly.
+Stilum is a simple terminal output styler for Kotlin. It has a set of predefined text colors and styles that can be used
+for any terminal output.
+
+## Installation
+
+The package is distributed through maven central. 
+```
+dependencies {
+    implementation("io.github.isiosis.stilum:stilum:0.1.1")
+}
+```
+
+## Usage
 
 Sample usages
 
@@ -20,21 +30,17 @@ The above usage should output the following
 
 ![](/img/red_print.png)
 
-## Usage
-
-<br>
-To start using Stilum get the package from the maven central from the group `io.github.isiosis` and package name `Stilum`.
-There are two main ways to use Stilum.
-<br>
+Stilum that can be used as pre styled output element or through it's
+companion object, it can be used to style elements on the fly.
 
 #### Usage through an instantiated Stilum Object
 
-To use Stilum through an instantiated object, which will contain it's own class styling, simply instantiate a new Stilum
+To use Stilum through an instantiated object, which contains it's own class styling, simply instantiate a new Stilum
 class and pass the desired parameters to the constructor.
 <br>
 
 There are three parameters that can be passed, `foregroundColor`, `backgroundColor` and `fontStyle`. Each of those can
-be used from the equivalently names classes inside the Stilum package.
+be used from the equivalently named classes inside the Stilum package.
 <br>
 
 Here's an example usage
