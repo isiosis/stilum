@@ -28,7 +28,7 @@ Sample usages
 
 The above usage should output the following
 
-![](/img/red_print.png)
+![](img/red_print.png)
 
 Stilum that can be used as pre styled output element or through it's
 companion object, it can be used to style elements on the fly.
@@ -67,6 +67,7 @@ The output will still be **bold** since the class style takes precedence over th
 
 <br>
 This provides a quick setup and way to style outputs without creating a styled class in Stilum. To use the class this way:
+
 ```
 Stilum.println("This message should be yellow", foregroundColor=Color.yellow)
 ```
@@ -77,4 +78,16 @@ Stilum.println(bold("this message should be bold"))
 Stilum.println(red(bold("this message should be bold and red")))
 ```
 When nesting styles this way, the outermost styling will take precedence if the applied styles are changing the same attribute.
+
+#### Usage through extension methods on the `String` class
+
+Stilum also has extension functions for the String class, which after being imported, can be used like this:
+```
+import io.github.isiosis.Stilum.extensions.*
+
+fun main() {
+    kotlin.io.println("this text should be red and bold".red().bold())
+}
+```
+
 <br>
