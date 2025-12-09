@@ -27,3 +27,5 @@ Sample usages
 ```
 
 ![](docs/img/red_print.png)
+
+More documentation can be found in the [docs](https://isiosis.github.io/stilum/)
