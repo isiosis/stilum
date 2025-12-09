@@ -1,4 +1,5 @@
 
+![](https://img.shields.io/github/license/isiosis/stilum)
 # stilum
 
 A simple terminal text styler for kotlin applications.
